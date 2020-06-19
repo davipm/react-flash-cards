@@ -35,6 +35,6 @@ function FlashCard({ flashCard }) {
       <div className="back" ref={backEl}>{flashCard.answer}</div>
     </div>
   )  
-};
+}
 
 export default FlashCard;
