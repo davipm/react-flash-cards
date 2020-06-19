@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: sans-serif;
@@ -22,7 +28,12 @@ select {
   width: 100%;
   margin: 20px auto 0 auto;
   padding: 0 15px;
-  max-width: 1140px;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
 }
 
 .header {
@@ -33,6 +44,13 @@ select {
   background-color: white;
   padding: 0 1.5rem;
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, .3);
+}
+
+@media (max-width: 576px) {
+  .header {
+    padding: 0 15px;
+    justify-content: flex-start;
+  }
 }
 
 .header .form-group:last-child {
@@ -76,6 +94,18 @@ select {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .card {
