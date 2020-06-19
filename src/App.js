@@ -8,6 +8,7 @@ import './App.css';
 function App() {
   const [flashCards, setFlashCards] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const categoryEl = useRef();
   const amountEl = useRef();
@@ -27,6 +28,8 @@ function App() {
 
   async function handleSubmit(event) {
     event.preventDefault();
+    setLoading(true);
+
     try {
       const response = await axios.get('https://opentdb.com/api.php', {
         params: {
@@ -49,6 +52,8 @@ function App() {
           options: options.sort(() => Math.random() - .5)
         }
       }))
+
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -75,6 +80,7 @@ function App() {
       </form>
 
       <div className="container">
+        {loading && <h3>Loading</h3>}
         <FlashCardList flashCards={flashCards} />
       </div>
     </>
