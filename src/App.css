@@ -59,6 +59,7 @@ select {
   border-radius: .3rem;
   cursor: pointer;
   transition: all .15s ease-in-out;
+  outline: 0;
 }
 
 .btn:hover {
